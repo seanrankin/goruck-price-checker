@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   def send_new_product_notification
     body = "The #{self.name} is now available for sale on the web at: "
     body += "\n"
-    body += "http://www.goruck.com/#{self.link}"
+    body += "http://www.goruck.com#{self.link}"
 
     ActionMailer::Base.mail(
       :from => "Sean Rankin <sean.rankin@gmail.com>",
@@ -20,7 +20,7 @@ class Product < ApplicationRecord
       body = "The #{self.name} is now on sale at a lower price of #{self.price}. "
       body = "This represents a discount of $#{self.old_price - self.price}."
       body += "\n"
-      body += "http://www.goruck.com/#{self.link}"
+      body += "http://www.goruck.com#{self.link}"
 
       ActionMailer::Base.mail(
         :from => "Sean Rankin <sean.rankin@gmail.com>",
@@ -35,7 +35,7 @@ class Product < ApplicationRecord
     if self.updated_at < 7.days.ago
       body = "The #{self.name} has been restocked at the price of $#{self.price}. "
       body += "\n"
-      body += "http://www.goruck.com/#{self.link}"
+      body += "http://www.goruck.com#{self.link}"
 
       ActionMailer::Base.mail(
         :from => "Sean Rankin <sean.rankin@gmail.com>",
