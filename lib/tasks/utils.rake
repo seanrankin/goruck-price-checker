@@ -8,6 +8,9 @@ namespace :utils do
       # Create client
       http = Net::HTTP.new(uri.host, uri.port)
 
+      # Use SSL
+      http.use_ssl = true
+
       # Create Request
       req =  Net::HTTP::Get.new(uri)
 
