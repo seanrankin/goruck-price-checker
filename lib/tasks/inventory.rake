@@ -9,8 +9,8 @@ namespace :inventory do
       agent.follow_meta_refresh = true
     }
 
-    # link = "http://www.goruck.com/gear-we-build/c/97"
-    link = "https://dl.dropboxusercontent.com/u/21441346/goruck-temp.html"
+    link = "http://www.goruck.com/gear-we-build/c/97"
+    # link = "https://dl.dropboxusercontent.com/u/21441346/goruck-temp.html"
 
     a.get(link) do | page |
       page.search(".mz-productlist-item").each do | item |
