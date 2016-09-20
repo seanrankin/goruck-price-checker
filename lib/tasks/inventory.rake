@@ -9,8 +9,11 @@ namespace :inventory do
       agent.follow_meta_refresh = true
     }
 
-    link = "http://www.goruck.com"
-    # link = "https://dl.dropboxusercontent.com/u/21441346/goruck-temp.html"
+    if Rails.env.production?
+      link = "http://www.goruck.com"
+    else
+      link = "https://dl.dropboxusercontent.com/u/21441346/goruck-temp.html"
+    end
 
     a.get(link) do | home_page |
       gear_page = a.click(home_page.link_with(:text => /All GORUCK Built Gear/))

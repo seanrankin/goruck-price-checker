@@ -32,7 +32,7 @@ class Product < ApplicationRecord
   end
 
   def send_product_restock_notification
-    if self.updated_at > 7.days.ago
+    if self.updated_at > 1.week.ago
       body = "The #{self.name} has been restocked at the price of $#{self.price}. "
       body += "\n"
       body += "http://www.goruck.com#{self.link}"
