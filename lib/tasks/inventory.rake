@@ -20,6 +20,7 @@ namespace :inventory do
       gear_page.search(".mz-productlist-item").each do | item |
         name = item.search(".mz-productlisting-title").text.strip
         link = item.search(".mz-cat-product-buy-button").attr('href')
+        image = item.search(".mz-cat-product-image").attr('src')
 
         if item.search(".mz-price.is-saleprice").text.present?
           price = item.search(".mz-price.is-saleprice").text.strip.gsub!("$", '').to_f
@@ -34,7 +35,7 @@ namespace :inventory do
         if product.price.present? && product.price != price
           product.assign_attributes(old_price: product.price, price: price)
         else
-          product.assign_attributes(price: price, link: link)
+          product.assign_attributes(price: price, link: link, image: image)
         end
 
         if product.changed?
