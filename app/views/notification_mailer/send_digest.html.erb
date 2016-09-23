@@ -1,0 +1,32 @@
+<% if @new_products.length > 0 %>
+  <h3>New Products</h3>
+  <% @new_products.each do |new_product| %>
+    <p>
+      <a href='http://www.goruck.com<%= new_product.product.link %>'><img src='<%= new_product.product.image %>' height='20' /></a>
+      <a href='http://www.goruck.com<%= new_product.product.link %>'><%= new_product.product.name%></a>
+    <p>
+  <% end %>
+  <% @new_products.update_all(:is_sent => true) %>
+<% end %>
+
+<% if @updated_products.length > 0 %>
+  <h3>Updated Products</h3>
+  <% @updated_products.each do |updated_product| %>
+    <p>
+      <a href='http://www.goruck.com<%= updated_product.product.link %>'><img src='<%= updated_product.product.image %>' height='20' /></a>
+      <a href='http://www.goruck.com<%= updated_product.product.link %>'><%= updated_product.product.name%></a>
+    <p>
+  <% end %>
+  <% @updated_products.update_all(:is_sent => true) %>
+<% end %>
+
+<% if @restocked_products.length > 0 %>
+  <h3>Restocked Products</h3>
+  <% @restocked_products.each do |restocked_product| %>
+    <p>
+      <a href='http://www.goruck.com<%= restocked_product.product.link %>'><img src='<%= restocked_product.product.image %>' height='20' /></a>
+      <a href='http://www.goruck.com<%= restocked_product.product.link %>'><%= restocked_product.product.name%></a>
+    <p>
+  <% end %>
+  <% @restocked_products.update_all(:is_sent => true) %>
+<% end %>
