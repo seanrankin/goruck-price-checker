@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'nokogiri'
 gem 'mechanize'
 gem 'awesome_print', :require => 'ap'
+gem 'stamp'
 
 
 group :development, :test do
