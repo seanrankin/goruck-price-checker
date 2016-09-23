@@ -34,6 +34,7 @@ gem 'nokogiri'
 gem 'mechanize'
 gem 'awesome_print', :require => 'ap'
 gem 'stamp'
+gem 'skeleton-rails', :git => 'https://github.com/helios-technologies/skeleton-rails'
 
 
 group :development, :test do
